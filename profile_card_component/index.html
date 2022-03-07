@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="output.css">
+
+  <title>Frontend Mentor | Profile card component</title>
+
+</head>
+<body class="min-h-screen bg-darkCyan relative flex items-center justify-center overflow-hidden" >
+  <div class="absolute -z-10 -top-3/4 -left-1/2 sm:-left-3/4 md:-left-1/4 sm:-top-full"   >
+    <img src="images/bg-pattern-top.svg" />
+  </div>
+
+  <div class="font-kumbh rounded-lg border-2 border-transparent overflow-hidden shadow-lg" >
+    <div>
+      <img src="images/bg-pattern-card.svg" />
+    </div>
+
+    <div class="bg-white text-center " >
+      <img class="relative mx-auto border-4 border-white rounded-full -top-12" src="images/image-victor.jpg" alt="profile" />
+      <div class="relative -top-8" >
+        <h1 class="text-veryDarkDesaturatedBlue text-lg font-bold" >Victor Crest <span class="text-darkGray" >26</span> </h1>
+        <span class="text-darkGray" >London</span>
+      </div>
+      <div class="flex justify-evenly border-t border-darkGray text-darkGray p-5 tracking-wider" >
+        <span> <strong class="block text-veryDarkDesaturatedBlue font-bold" >80K </strong>Followers </span>
+        <span> <strong class="block text-veryDarkDesaturatedBlue font-bold" >803K </strong> Likes</span>
+        <span> <strong class="block text-veryDarkDesaturatedBlue font-bold" >1.4K </strong> Photos</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute -z-10 -right-1/2 -bottom-3/4 sm:-right-3/4 md:-right-1/4 sm:-bottom-full" >
+    <img class="w-full" src="images/bg-pattern-bottom.svg" />
+  </div>
+
+</body>
+</html>
