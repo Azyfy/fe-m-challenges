@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="text-[16px]" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="output.css">
+
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <title>Frontend Mentor | [Blogr]</title>
+
+</head>
+<body>
+
+  <header class="font-ubuntu bg-gradient-to-b from-veryLightRed to-lightRed text-center text-white rounded-bl-[15%] overflow-hidden" >
+    <div class="bg-mobilePattern md:bg-desktopPattern bg-center bg-[length:300%_300%] bg-no-repeat px-5 pt-10 pb-20" >
+      <div x-data="{ open: false }" class="flex justify-between md:justify-start items-center mb-20" >
+        <img src="./images/logo.svg" alt="logo" >
+        <img @click="open = !open" :class="!open || 'hidden'" class="md:hidden w-[20px] h-[20px] hover:cursor-pointer" src="./images/icon-hamburger.svg" alt="menu icon" >
+        <img @click="open = !open" :class="open || 'hidden'" class="md:hidden w-[20px] h-[20px] hover:cursor-pointer" src="./images/icon-close.svg" alt="menu icon" >
+
+        <nav :class="open || 'hidden'" class="absolute md:w-full md:static md:flex top-24 left-10 right-10 z-10 py-10 md:py-0 md:ml-10 md:gap-9 rounded-lg bg-white md:bg-transparent text-veryDarkBlue " >
+          <div class="relative mb-2" >
+            <span @click="toggle($refs.product, $refs.productArrow)" class="hover:cursor-pointer md:text-white md:hover:underline" > Product
+              <picture>
+                <source media="(min-width:768px)" srcset="./images/icon-arrow-light.svg">
+                <img x-ref="productArrow" class="inline-block" src="./images/icon-arrow-dark.svg" alt="arrow"> 
+              </picture> 
+            </span>
+            <div x-ref="product" class="hidden bg-gray-100 mx-10 rounded-md grid-rows-5 gap-2 md:absolute md:-left-16 md:top-9 p-3 md:text-left" >
+              <span class="hover:font-bold hover:cursor-pointer" > Overview </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Pricing </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Marketplace </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Features </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Integrations </span>
+            </div>
+          </div>
+
+          <div class="relative  mb-2" >
+            <span @click="toggle($refs.company, $refs.companyArrow)" class="hover:cursor-pointer md:text-white md:hover:underline" > Company 
+              <picture>
+                <source media="(min-width:768px)" srcset="./images/icon-arrow-light.svg">
+                <img x-ref="companyArrow" class="inline-block" src="./images/icon-arrow-dark.svg" alt="arrow"> 
+              </picture> 
+            </span>
+            <div x-ref="company" class="hidden bg-gray-100 mx-10 rounded-md grid-rows-4 gap-2 md:absolute md:-left-11 md:top-9 p-3 md:text-left" >
+              <span class="hover:font-bold hover:cursor-pointer" > About </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Team </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Blog </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Careers </span>
+            </div>
+          </div>
+
+          <div class="relative  mb-2" >
+            <span @click="toggle($refs.connect, $refs.connectArrow)" class="hover:cursor-pointer md:text-white md:hover:underline" > Connect 
+              <picture>
+                <source media="(min-width:768px)" srcset="./images/icon-arrow-light.svg">
+                <img x-ref="connectArrow" class="inline-block" src="./images/icon-arrow-dark.svg" alt="arrow"> 
+              </picture> 
+            </span>
+            <div x-ref="connect" class="hidden bg-gray-100 mx-10 rounded-md grid-rows-3 gap-2 md:absolute md:-left-14 md:top-9 p-3 md:text-left" >
+              <span class="hover:font-bold hover:cursor-pointer" > Contact </span>
+              <span class="hover:font-bold hover:cursor-pointer" > Newsletter </span>
+              <span class="hover:font-bold hover:cursor-pointer" > LinkedIn </span>
+            </div>
+          </div>
+
+          <div class="relative grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 md:absolute md:right-10 border-t-[1px] md:border-none " >
+            <button class="w-[100px] justify-self-center md:text-white" >Login</button>
+            <button class="bg-gradient-to-r from-veryLightRed to-lightRed w-[100px] justify-self-center rounded-lg text-white p-2 md:bg-none md:bg-white md:text-lightRed md:hover:bg-lightRed md:hover:text-white" >Sign Up</button>
+          </div>
+
+        </nav>
+      </div>
+
+      <h1 class="text-4xl p-3" > A modern publishing platform </h1>
+      <h5> Grow your audience and build your online brand </h5>
+
+      <div class="my-10" >
+        <button class="border-[1px] border-white rounded-2xl px-3 py-1 font-bold bg-white text-lightRed  hover:bg-transparent hover:text-white mr-2" > Start for Free </button>
+        <button class="border-[1px] border-white rounded-2xl px-3 py-1 font-bold hover:bg-white hover:text-lightRed" > Learn More </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="my-20 leading-7 text-center md:text-left font-overpass" >
+    <section>
+      <h3 class="text-center" > Designed for the future </h3>
+
+      <div class="md:grid md:grid-cols-2 md:items-center" >
+
+        <picture>
+          <source media="(min-width:768px)" srcset="./images/illustration-editor-desktop.svg">
+          <img class="mx-auto relative md:col-start-2 md:-right-[27%]" src="./images/illustration-editor-mobile.svg" alt="editor" >
+        </picture> 
+
+        <div class="md:row-start-1 px-10 md:pl-40" >
+          <h4> Introducing an extensible editor </h4>
+          <p> 
+            Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content. 
+            The editor supports management of multiple blogs and allows easy manipulation of embeds such as images, 
+            videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or 
+            change the looks of a blog. </p>
+
+          <h4>  Robust content management </h4>
+          <p> Flexible content management enables users to easily move through posts. Increase the usability of your blog 
+            by adding customized categories, sections, format, or flow. With this functionality, you’re in full control. </p>
+        </div>
+      </div>
+
+    </section>
+     
+    <section class="relative bg-gradient-to-b from-veryDarkGrayBlue to-veryDarkDesaturatedBlue rounded-bl-[15%] rounded-tr-[15%] text-white mt-56 md:my-20" >
+      <div class="md:grid md:grid-cols-2 bg-circles bg-[center_top_-100px] md:bg-[left_top_-100px] bg-contain bg-no-repeat pt-56 md:pt-16 pb-32 md:pb-16" >
+        <img class="absolute left-[10%] md:left-0 -top-[40%] md:top-[-20%] w-[400px]" src="./images/illustration-phones.svg" alt="phones" >
+
+        <div class="md:col-start-2 px-10 md:pr-40" >
+          <h2 class="text-2xl py-3" > State of the Art Infrastructure </h2>
+          <p class="text-white" > With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity. 
+            This ensures your site will load instantly, no matter where your readers are, keeping your site competitive. </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="md:grid md:grid-cols-2 md:items-center" >
+
+      <picture>
+        <source media="(min-width:768px)" srcset="./images/illustration-laptop-desktop.svg">
+        <img class="relative mx-auto md:-left-[29%]" src="./images/illustration-laptop-mobile.svg" alt="laptop" >
+      </picture> 
+
+      <div class="px-10 md:pr-40" >
+        <h4> Free, open, simple </h4>
+        <p> Blogr is a free and open source application backed by a large community of helpful developers. It supports 
+          features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, 
+          and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn. </p>
+        
+        <h4> Powerful tooling </h4>
+        <p> Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but
+          capable of producing even the most complicated sites. </p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="grid md:grid-cols-4 gap-7 text-center bg-veryDarkBlue text-grayishBlue rounded-tr-[15%] py-10" >
+    <img class="mx-auto" src="./images/logo.svg" alt="logo" >
+
+    <div class="grid gap-1" >
+      <span class="footer-sec" > Product </span>
+      <a href="#" > Overview </a>
+      <a href="#" > Pricing </a>
+      <a href="#" > Marketplace </a>
+      <a href="#" > Features </a>
+      <a href="#" > Integrations </a>
+    </div>
+
+    <div class="grid gap-1" >
+      <span class="footer-sec" > Company </span>
+      <a href="#" > About </a>
+      <a href="#" > Team </a>
+      <a href="#" > Blog </a>
+      <a href="#" > Careers </a>
+    </div>
+
+    <div class="grid gap-1" >
+      <span class="footer-sec"> Connect </span>
+      <a href="#" > Contact </a>
+      <a href="#" > Newsletter </a>
+      <a href="#" > LinkedIn </a>
+    </div>
+
+  </footer>
+
+  <script> 
+
+    function toggle(el, arrowEl) {
+      if([... el.classList].includes("hidden")) {
+        el.classList.remove("hidden")
+        el.classList.add("grid")
+
+        arrowEl.style.transform = "rotate(180deg)"
+      } else {
+        el.classList.add("hidden")
+        el.classList.remove("grid")
+
+        arrowEl.style.transform = "rotate(0deg)"
+      }
+    }
+
+  </script>
+
+</body>
+</html>
