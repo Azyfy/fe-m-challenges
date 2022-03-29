@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="text-[15px]" > 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="output.css">
+
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <title>Frontend Mentor | Interactive pricing component</title>
+
+</head>
+<body>
+
+  <div class="font-manrope text-grayishBlue" >
+    
+    <div class="bg-bgPattern bg-cover bg-no-repeat text-center h-[50vh]" >
+      <div class="flex flex-col justify-center items-center bg-circlesPattern bg-no-repeat bg-center  h-full">
+        <h1 class="font-bold text-2xl text-darkDesaturatedBlue" > Simple, traffic-based pricing </h1>
+        <p> Sign-up for our 30-day trial. No credit card required. </p>
+      </div>
+    </div>
+
+    <div class="relative -top-[75px] rounded-lg bg-white shadow-2xl text-center mx-auto w-[330px] md:w-[550px]" >
+
+      <div x-data="{ ipc, range: 2, discount: false, price: 16, change, handleClick }">
+        <div class="pt-5 my-5 grid grid-rows-3 md:grid-rows-2 md:grid-cols-2" >
+          <p class="md:col-start-1 " > <span x-text="ipc[range].views"  > </span> Pageviews </p>
+          <div class="md:col-span-2" >
+            <input x-model="range" @input="change(ipc[range].price)" type="range" id="range" name="range"
+                min="0" max="4">
+          </div>
+          <p class="md:col-start-2 md:row-start-1" > <span class="font-bold text-xl text-darkDesaturatedBlue" >$<span x-text="price"> </span></span>/month </p>
+        </div>
+
+        <div class="flex gap-5 justify-center text-sm" >
+          <span>Monthly Billing</span>
+          <div @click="handleClick(price, $refs.toggleDot)" class="flex flex-col bg-lightGrayishBlueTwo hover:bg-softCyan cursor-pointer p-1 w-[45px] rounded-lg" > 
+            <div x-ref="toggleDot" class=" bg-white w-[15px] h-[15px] rounded-full" ></div>
+          </div>
+          <span>Yearly Billing <span class="bg-lightGrayishRed text-lightRed px-1 rounded-xl" > <span class="md:hidden" >-</span>  25% <span class="hidden md:inline"> discount </span> </span></span>
+        </div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row items-center justify-center md:justify-between mt-5 p-5 border-t-[1px] border-gray-200" >
+
+        <div>
+          <div class="flex justify-center md:justify-start items-center gap-2" >
+            <img src="./images/icon-check.svg" alt="check">
+            <span> Unlimited websites </span>
+          </div>
+          <div class="flex justify-center md:justify-start items-center gap-2" >
+            <img src="./images/icon-check.svg" alt="check">
+            <span> 100% data ownership </span>
+          </div>
+          <div class="flex justify-center md:justify-start items-center gap-2" >
+            <img src="./images/icon-check.svg" alt="check">
+            <span> Email reports </span>
+          </div>
+        </div>
+
+        <button class="bg-darkDesaturatedBlue mt-5 rounded-2xl p-2 w-[200px] text-white" > Start my trial </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+     const ipc = [
+      {
+        views: "10K",
+        price: 8
+      },
+      {
+        views: "50K",
+        price: 12
+      },
+      {
+        views: "100K",
+        price: 16
+      },
+      {
+        views: "500K",
+        price: 24
+      },
+      {
+        views: "1M",
+        price: 36
+      },
+    ]
+
+    function change(value) {
+      (!this.discount) ? ( this.price = value ) : ( this.price = value * 0.25 )
+      }
+
+    function handleClick(v, el) {
+      this.discount = !this.discount
+      if(this.discount) {
+        this.price = v * 0.25
+        el.classList.remove("self-start")
+        el.classList.add("self-end")
+      } else {
+        this.price = v * 4
+        el.classList.remove("self-end")
+        el.classList.add("self-start")
+      }
+    }
+
+  </script>
+
+</body>
+</html>
