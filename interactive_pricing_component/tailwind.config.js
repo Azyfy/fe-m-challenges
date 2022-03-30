@@ -21,6 +21,7 @@ module.exports = {
         "manrope": ["Manrope"],
       },
       backgroundImage: {
+        "slider": "url('./images/icon-slider.svg')",
         "bgPattern": "url('./images/bg-pattern.svg')",
         "circlesPattern": "url('./images/pattern-circles.svg')"
       }

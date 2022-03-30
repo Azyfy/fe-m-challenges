@@ -3,3 +3,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    @apply my-3 bg-lightGrayishBlue rounded-2xl h-2 w-80 hover:cursor-pointer;
+}
+
+input[type="range"]::-moz-range-progress {
+    @apply bg-strongCyan h-full rounded-2xl; 
+}
+input[type="range"]::-moz-range-track {  
+    @apply bg-lightGrayishBlue rounded-2xl;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    @apply bg-softCyan h-2 rounded-2xl;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    @apply bg-slider -mt-[10px] bg-no-repeat bg-center hover:cursor-move h-7 w-7 bg-contain p-2 rounded-full bg-strongCyan border-none;
+}
+  
+  /* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+    @apply bg-slider bg-no-repeat bg-center hover:cursor-move bg-contain p-2 rounded-full bg-strongCyan border-none;
+}
