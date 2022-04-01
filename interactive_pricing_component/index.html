@@ -94,17 +94,17 @@
     ]
 
     function change(value) {
-      (!this.discount) ? ( this.price = value ) : ( this.price = value * 0.25 )
+      (!this.discount) ? ( this.price = value ) : ( this.price = value - value * 0.25 )
       }
 
     function handleClick(v, el) {
       this.discount = !this.discount
       if(this.discount) {
-        this.price = v * 0.25
+        this.price = v - v * 0.25
         el.classList.remove("self-start")
         el.classList.add("self-end")
       } else {
-        this.price = v * 4
+        this.price = (v * 100) / 75
         el.classList.remove("self-end")
         el.classList.add("self-start")
       }
