@@ -2,4 +2,4 @@
 
 [GitHub Pages Live](https://azzryel.github.io/fe-m-challenges/)
  
-Real-world HTML, CSS and JavaScript challenges from [Frontend Mentor](from https://www.frontendmentor.io/)
+Real-world HTML, CSS and JavaScript challenges from [Frontend Mentor](https://www.frontendmentor.io/)
